@@ -19,6 +19,9 @@ public class Valuta {
 	}
 
 	public void setNazivValute(String nazivValute) {
+		if(nazivValute == null) {
+			throw new RuntimeException("Naziv valute ne sme biti null");
+		}
 		this.nazivValute = nazivValute;
 	}
 
@@ -27,6 +30,9 @@ public class Valuta {
 	}
 
 	public void setSkracenica(String skracenica) {
+		if(skracenica == null) {
+			throw new RuntimeException("Skracenica valute ne sme biti null");
+		}
 		this.skracenica = skracenica;
 	}
 
@@ -35,6 +41,9 @@ public class Valuta {
 	}
 
 	public void setKupovniKurs(double kupovniKurs) {
+		if(kupovniKurs <= 0) {
+			throw new RuntimeException("Kupovni kurs mora biti veci od nule");
+		}
 		this.kupovniKurs = kupovniKurs;
 	}
 
@@ -43,6 +52,9 @@ public class Valuta {
 	}
 
 	public void setProdajniKurs(double prodajniKurs) {
+		if(prodajniKurs <= 0) {
+			throw new RuntimeException("Prodajni kurs mora biti veci od nule");
+		}
 		this.prodajniKurs = prodajniKurs;
 	}
 
@@ -51,6 +63,9 @@ public class Valuta {
 	}
 
 	public void setSrednjiKurs(double srednjiKurs) {
+		if(srednjiKurs <= 0) {
+			throw new RuntimeException("Srednji kurs mora biti veci od nule");
+		}
 		this.srednjiKurs = srednjiKurs;
 	}
 
@@ -59,14 +74,17 @@ public class Valuta {
 	}
 
 	public void setDatum(GregorianCalendar datum) {
+		if(datum.YEAR < 2014) {
+			throw new RuntimeException("Godina ne moze biti niza od 2014-e");
+		}
 		this.datum = datum;
 	}
 
 	@Override
 	public String toString() {
-		return "Valuta [nazivValute=" + nazivValute + ", kupovniKurs="
-				+ kupovniKurs + ", prodajniKurs=" + prodajniKurs
-				+ ", srednjiKurs=" + srednjiKurs + ", datum=" + datum + "]";
+		return "Naziv Valute: " + nazivValute + " Kupovni Kurs: "
+				+ kupovniKurs + " Prodajni Kurs: " + prodajniKurs
+				+ " Srednji Kurs: " + srednjiKurs + " Datum: " + datum;
 	}
 
 	@Override

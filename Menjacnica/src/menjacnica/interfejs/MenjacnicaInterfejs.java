@@ -7,8 +7,8 @@ public interface MenjacnicaInterfejs {
 	public void dodajKurs(String nazivValute, String skracenica, GregorianCalendar datum, 
 			double kupovniKurs, double prodajniKurs, double srednjiKurs);
 	
-	public void obrisiKurs();
+	public void obrisiKurs(String valuta, GregorianCalendar datum);
 	
-	public String pronadjiKurs();
+	public String pronadjiKurs(String valuta, GregorianCalendar datum);
 		
 }

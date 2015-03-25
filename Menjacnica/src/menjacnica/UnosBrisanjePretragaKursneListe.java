@@ -8,7 +8,7 @@ import menjacnica.interfejs.MenjacnicaInterfejs;
 public class UnosBrisanjePretragaKursneListe extends Menjacnica implements MenjacnicaInterfejs {
 
 	public void dodajKurs(String nazivValute, String skracenica, GregorianCalendar datum, 
-			double kupovniKurs, double prodajniKurs, double srednjiKurs) {
+			double kupovniKurs, double prodajniKurs) {
 		boolean ubacen = false;
 		
 		Valuta valuta = new Valuta();
@@ -17,7 +17,7 @@ public class UnosBrisanjePretragaKursneListe extends Menjacnica implements Menja
 		valuta.setDatum(datum);
 		valuta.setKupovniKurs(kupovniKurs);
 		valuta.setProdajniKurs(prodajniKurs);
-		valuta.setSrednjiKurs(srednjiKurs);
+		valuta.setSrednjiKurs( (prodajniKurs + kupovniKurs) / 2 );
 
 		if(kursnaLista.size() == 0) {
 			kursnaLista.add(valuta);
@@ -45,6 +45,7 @@ public class UnosBrisanjePretragaKursneListe extends Menjacnica implements Menja
 					kursnaLista.get(i).getDatum().equals(datum)) {
 				kursnaLista.remove(kursnaLista.get(i));
 				obrisan = true;
+				break;
 			}
 		}
 		if(!obrisan) {

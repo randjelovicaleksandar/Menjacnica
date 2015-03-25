@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 public interface MenjacnicaInterfejs {
 
 	public void dodajKurs(String nazivValute, String skracenica, GregorianCalendar datum, 
-			double kupovniKurs, double prodajniKurs, double srednjiKurs);
+			double kupovniKurs, double prodajniKurs);
 	
 	public void obrisiKurs(String valuta, GregorianCalendar datum);
 	

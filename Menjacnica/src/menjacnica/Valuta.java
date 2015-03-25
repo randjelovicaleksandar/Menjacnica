@@ -74,8 +74,9 @@ public class Valuta {
 	}
 
 	public void setDatum(GregorianCalendar datum) {
-		if(datum.YEAR < 2014) {
-			throw new RuntimeException("Godina ne moze biti niza od 2014-e");
+		GregorianCalendar danas = new GregorianCalendar();
+		if(datum.YEAR != danas.YEAR || datum.YEAR != danas.DAY_OF_YEAR || datum==null) {
+			throw new RuntimeException("Kurs moze biti unet samo za datum koji je tog dana");
 		}
 		this.datum = datum;
 	}
@@ -84,7 +85,7 @@ public class Valuta {
 	public String toString() {
 		return "Naziv Valute: " + nazivValute + " Kupovni Kurs: "
 				+ kupovniKurs + " Prodajni Kurs: " + prodajniKurs
-				+ " Srednji Kurs: " + srednjiKurs + " Datum: " + datum;
+				+ " Srednji Kurs: " + srednjiKurs + " Datum: " + getDatum();
 	}
 
 	@Override
